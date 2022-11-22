@@ -43,32 +43,40 @@ class cpm extends Controller{
 
 
     public function liczAction() {
-        $podane['x'] = $_POST['xs'];
-        $podane['y'] = $_POST['ys'];
-        $podane['punkt'] = $_POST['punkt'];
 
-        // jak przepisac punkty w postaci 1,2,3,4 na tablicę elementów
-        $xs = explode(',', $_POST['xs']);
-        $ys = explode(',', $_POST['ys']);
-        $punkt = $_POST['punkt'];
-        $rozmiar=count($xs);
+        $kolejnoscType = $_POST['kolejnoscType'];
+        $czynnosci = $_POST['czynnosci'];
+        $czasy = $_POST['czasy'];
+        $kolejnosci = $_POST['kolejnosc'];
+        // głupie arrayki, lepiej mieć jedną z 3 kluczami
 
-        $wynik_zadanie = $this->newtonInterpolation($xs, $ys, $rozmiar);
-        $wspolczynniki = $wynik_zadanie[0];
-        $zadanie2 = "";
-
-        for($i=0;$i<$rozmiar;$i++){
-            $zadanie2 .= $wspolczynniki[$i]."<br>";
+        if(!is_array($czynnosci) || !is_array($czasy) || !is_array($kolejnosci)){
+            $this->smarty->assgin('error', "Błędne dane wejściowe");
+            $this->smarty->display('cpm-error.tpl');
         }
 
-        $zadanie3 = $this->newtonResult($wspolczynniki, $xs, $punkt, $rozmiar);
+        if((sizeof($czynnosci) != sizeof($czasy)) || sizeof($czasy) != sizeof($kolejnosci)) {
+            $this->smarty->assgin('error', "Niepełne dane wejściowe");
+            $this->smarty->display('cpm-error.tpl');
+        }
 
-        $this->smarty->assign('podane', $podane);
+        // array z danymi wejsciowymi
+        $dane = [];
+        for($i = 0; $i < sizeof($czynnosci); $i++){
+            $row = [];
+            $row['czynnosc'] = $czynnosci[$i];
+            $row['czas'] = $czasy[$i];
+            $row['kolejnosc'] = $kolejnosci[$i];
+            $dane[] = $row;
+        }
+
+        echo "<pre>";
+        var_dump($dane);
+        echo "</pre>";
+
+        $this->smarty->assign('podane', $dane);
         $this->smarty->assign('strona', $this->strona);
-        $this->smarty->assign('wynik_zadanie', $wynik_zadanie[1]);
-        $this->smarty->assign('zadanie2', $zadanie2);
-        $this->smarty->assign('zadanie3', $zadanie3);
-        $this->smarty->display('cpm-wyniki.tpl');
+//        $this->smarty->display('cpm-wyniki.tpl');
     }
 
     public function plikAction(){

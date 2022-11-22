@@ -36,7 +36,6 @@
 <!-- Services -->
   <div class="w3-container" id="services" style="padding:20px;">
     <h1 class="w3-xxxlarge w3-text-red"><b>{$strona['nazwa']}</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
     <p>{$strona['opis']}</p>
     <p>{$strona['opis_big']}</p>
   </div>
