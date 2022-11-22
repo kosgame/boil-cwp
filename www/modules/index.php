@@ -16,7 +16,7 @@
 
 			$this->strona['nazwa'] = "Strona główna";
             $this->strona['opis'] = "Wybierz metodę z menu."; 
-            $this->strona['opis_big'] = "To jest biblioteka numeryczna, która będzie wykorzystywana na zajęciach z metod numerycznych. Wszystkie metody są dostępne po przez menu. Każda metoda na ten moment ma sztywno podane dane, ale w przyszłości nastąpi rozwój tej biblioteki.";
+            $this->strona['opis_big'] = "To jest program zrealizowany na ćwiczeniach projektowych z przedmiotu Badania operacyjne i logistyka. Póki co w menu znajduje się tylko metoda CPM";
 			$this->smarty->assign('strona', $this->strona);
             $this->smarty->display($this->template);			
         }
