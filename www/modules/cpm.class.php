@@ -16,7 +16,7 @@ class cpm extends Controller{
         $this->strona['opis_big'] .= "W ramach tego modułu jesteśmy w stanie znaleźć:<br>";
         $this->strona['opis_big'] .= "- najwcześniejsze/najpóźniejsze momenty zakończenia i rozpoczęcia czynności<br>";
         $this->strona['opis_big'] .= "- rezerwy czasowe<br>";
-        $this->strona['opis_big'] .= "- ścieżkę krytyczną<br>";
+        $this->strona['opis_big'] .= "- ścieżkę krytyczną";
     }
 
     public function indexAction() {
@@ -68,7 +68,7 @@ class cpm extends Controller{
         $this->smarty->assign('wynik_zadanie', $wynik_zadanie[1]);
         $this->smarty->assign('zadanie2', $zadanie2);
         $this->smarty->assign('zadanie3', $zadanie3);
-        $this->smarty->display('newton-licz.tpl');
+        $this->smarty->display('cpm-wyniki.tpl');
     }
 
     public function plikAction(){

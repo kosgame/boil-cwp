@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-	  <h2 class="w3-xxxlarge w3-text-red">Wyniki</h2>
+	  <h2 class="w3-xxxlarge w3-text-red">Wyniki CPM</h2>
     <hr style="width:50px;border:5px solid red" class="w3-round">
   	<p>Wynik dla podanych przez użytkownika liczb. Szukamy wartości dla X: <b>{$podane['punkt']}</b></p>
     <p>Podane wartości X: <b>{$podane['x']}</b> </br>

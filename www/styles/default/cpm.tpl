@@ -1,30 +1,81 @@
 {include file="header.tpl"}
-	<h2 class="w3-xxxlarge w3-text-red">Wyniki</h2>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-  	<p>Wynik dla zadania z zajęć. Podane x: [-2, -1, 0, 2, 4] &nbsp; Wartości y: [-1, 0, 5, 99, -55]</p>
-  	<p>Ilorazy różnicowe: <br> {$wynik_zadanie} </p>
-    <p>Współczynniki: <br> {$zadanie2}</p>
-    <p>Wynik dla X=1: {$zadanie3}</p>
+{assign var=triple value='<div class="w3-third">        <input class="w3-input w3-border" type="text" name="czynnosci[]" placeholder="Czynność">      </div>      <div class="w3-third">        <input class="w3-input w3-border" type="text" name="czasy[]" placeholder="Czas trwania">      </div>      <div class="w3-third">        <input class="w3-input w3-border placeholder-next" name="kolejnosc[]" type="text" placeholder="">      </div>'}
+<script>
+  $(document).ready(function() {
+    var max_fields = 30;
+    var wrapper = $(".container1");
+    var add_button = $(".add_form_field");
+    var nextSForm = $("#nextSForm input");
+    changeKolejnosc();
+    function changeKolejnosc(){
+      let newval = $('input[name=nextS]:checked', '#nextSForm').val();
+      $('input[name=kolejnoscType]').val(newval);
+      let typZdarzenia = "Następstwo zdarzeń (np. 1-2)";
+      if(newval === 'czynnosci'){
+        typZdarzenia = "Czynności poprzedzające np(A,B)"
+      }
+      $('.placeholder-next').map(function (key, value) {
+        value.placeholder = typZdarzenia;
+      })
+    }
+
+    var x = 1;
+    $(add_button).click(function(e) {
+      e.preventDefault();
+      if (x < max_fields) {
+        x++;
+        $(wrapper).append('{$triple}'); //add input box
+        changeKolejnosc();
+      } else {
+        alert('You Reached the limits')
+      }
+    });
+
+    $(wrapper).on("click", ".delete", function(e) {
+      e.preventDefault();
+      $(this).parent('div').remove();
+      x--;
+    })
+
+    $(nextSForm).on('change', function() {
+      changeKolejnosc();
+    });
+
+  });
+</script>
+
   </div>
 
   <div class="w3-container" id="contact" style="margin-top:75px">
   <h2 class="w3-xxxlarge w3-text-red">Wpisz własne dane</h2>
     <hr style="width:50px;border:5px solid red" class="w3-round">
-  	<p>Podaj własne dane. Liczby wpisuj po przecinku (,)</p>
-  	<form action="newton/licz" method="POST">
-      <div class="w3-section">
-        <label>X</label>
-        <input class="w3-input w3-border" type="text" name="xs" required>
+  	<p>Wybierz sposób podawania kolejności czynności.</p>
+    <form id="nextSForm">
+      <input class="w3-radio" type="radio" name="nextS" value="zdarzenia" checked>
+      <label>Następstwo zdarzeń</label>
+
+      <input class="w3-radio" type="radio" name="nextS" value="czynnosci">
+      <label>Czynnośći poprzedzające</label>
+    </form>
+    <form action="index.php?strona=cpm/licz" method="POST">
+    <div class="container1 w3-row-padding w3-margin-top">
+      <div class="w3-third">
+        <input class="w3-input w3-border" type="text" name="czynnosci[]" placeholder="Czynność">
       </div>
-      <div class="w3-section">
-        <label>Y</label>
-        <input class="w3-input w3-border" type="text" name="ys" required>
+      <div class="w3-third">
+        <input class="w3-input w3-border" type="text" name="czasy[]" placeholder="Czas trwania">
       </div>
-      <div class="w3-section">
-        <label>Szukany X</label>
-        <input class="w3-input2 w3-border" type="text" name="punkt" required>
+      <div class="w3-third">
+        <input class="w3-input w3-border placeholder-next" name="kolejnosc[]" type="text" placeholder="">
       </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Oblicz wynik</button>
+    </div>
+
+      <button class="add_form_field w3-red w3-button w3-margin-top">Dodaj kolejną czynność &nbsp;
+        <span style="font-size:16px; font-weight:bold;">+ </span>
+      </button>
+
+      <input type="hidden" name="kolejnoscType" value="zdarzenia">
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-top">Oblicz wynik</button>
     </form>
   </div>
 <div class="w3-container" id="contact" style="margin-top:75px">
