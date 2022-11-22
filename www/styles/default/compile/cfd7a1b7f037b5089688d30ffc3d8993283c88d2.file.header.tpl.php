@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2019-09-02 22:14:06
+<?php /* Smarty version Smarty-3.1.14, created on 2022-11-22 10:54:21
          compiled from "styles/default/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:15495210685ad5e4013bf677-43831383%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cfd7a1b7f037b5089688d30ffc3d8993283c88d2' => 
     array (
       0 => 'styles/default/header.tpl',
-      1 => 1567455068,
+      1 => 1570267184,
       2 => 'file',
     ),
   ),
@@ -42,27 +42,27 @@ styles/css/styles.css">
   <div class="w3-bar-block">
   	<p>Interpolacja</p>
     <a href="<?php echo $_smarty_tpl->tpl_vars['adres']->value;?>
-lagrange" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Lagrange</a> 
+index.php?strona=lagrange" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Lagrange</a>
     <a href="<?php echo $_smarty_tpl->tpl_vars['adres']->value;?>
-newton" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Newton</a>
+index.php?strona=newton" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Newton</a>
     <a href="<?php echo $_smarty_tpl->tpl_vars['adres']->value;?>
-cramer" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Wzory Cramera</a>
+index.php?strona=cramer" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Wzory Cramera</a>
     <a href="<?php echo $_smarty_tpl->tpl_vars['adres']->value;?>
-bisekcja" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Metoda Bisekcji</a>
+index.php?strona=bisekcja" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Metoda Bisekcji</a>
     <a href="<?php echo $_smarty_tpl->tpl_vars['adres']->value;?>
-styczne" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Newton-Raphson</a>
+index.php?strona=styczne" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Newton-Raphson</a>
     <a href="<?php echo $_smarty_tpl->tpl_vars['adres']->value;?>
-prostokat" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Prostokąty</a>
+index.php?strona=prostokat" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Prostokąty</a>
     <a href="<?php echo $_smarty_tpl->tpl_vars['adres']->value;?>
-trapez" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Trapezy</a>
+index.php?strona=trapez" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Trapezy</a>
     <a href="<?php echo $_smarty_tpl->tpl_vars['adres']->value;?>
-simpson" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Simpson</a>
+index.php?strona=simpson" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Simpson</a>
     <a href="<?php echo $_smarty_tpl->tpl_vars['adres']->value;?>
-monte" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Monte Carlo</a> 
+index.php?strona=monte" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Monte Carlo</a>
     <a href="<?php echo $_smarty_tpl->tpl_vars['adres']->value;?>
-euler" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Metoda Eulera</a>
+index.php?strona=euler" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Metoda Eulera</a>
     <a href="<?php echo $_smarty_tpl->tpl_vars['adres']->value;?>
-heun" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Metoda Heuna</a>
+index.php?strona=heun" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Metoda Heuna</a>
 
   </div>
 </nav>

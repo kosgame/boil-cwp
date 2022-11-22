@@ -116,7 +116,7 @@ abstract class Smarty_Resource {
         $_filepath = $compiled->source->uid;
         // if use_sub_dirs, break file into directories
         if ($_template->smarty->use_sub_dirs) {
-            $_filepath = substr($_filepath, 0, 2) . DS
+            $_filepath = smarty_resource . phpsubstr($_filepath, 0, 2)
              . substr($_filepath, 2, 2) . DS
              . substr($_filepath, 4, 2) . DS
              . $_filepath;
@@ -215,12 +215,12 @@ abstract class Smarty_Resource {
             if ($_template->parent->source->type != 'file' && $_template->parent->source->type != 'extends' && !$_template->parent->allow_relative_path) {
                 throw new SmartyException("Template '{$file}' cannot be relative to template of resource type '{$_template->parent->source->type}'");
             }
-            $file = dirname($_template->parent->source->filepath) . DS . $file;
+            $file = smarty_resource . phpdirname($_template->parent->source->filepath) . $file;
             $_file_exact_match = true;
             if (!preg_match('/^([\/\\\\]|[a-zA-Z]:[\/\\\\])/', $file)) {
                 // the path gained from the parent template is relative to the current working directory
                 // as expansions (like include_path) have already been done
-                $file = getcwd() . DS . $file;
+                $file = smarty_resource . phpgetcwd() . $file;
             }
         }
 

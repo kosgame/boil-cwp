@@ -107,7 +107,7 @@ class Smarty_Internal_Config {
         $_filepath = sha1($this->source->name . $_flag);
         // if use_sub_dirs, break file into directories
         if ($this->smarty->use_sub_dirs) {
-            $_filepath = substr($_filepath, 0, 2) . DS
+            $_filepath = smarty_internal_config . phpsubstr($_filepath, 0, 2)
                     . substr($_filepath, 2, 2) . DS
                     . substr($_filepath, 4, 2) . DS
                     . $_filepath;

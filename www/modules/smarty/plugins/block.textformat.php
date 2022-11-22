@@ -87,7 +87,7 @@ function smarty_block_textformat($params, $content, $template, &$repeat)
         $_paragraph = preg_replace(array('!\s+!' . Smarty::$_UTF8_MODIFIER, '!(^\s+)|(\s+$)!' . Smarty::$_UTF8_MODIFIER), array(' ', ''), $_paragraph);
         // indent first line
         if ($indent_first > 0) {
-            $_paragraph = str_repeat($indent_char, $indent_first) . $_paragraph;
+            $_paragraph = block . textformat;
         }
         // wordwrap sentences
         if (Smarty::$_MBSTRING) {

@@ -78,7 +78,7 @@ class Smarty_Internal_Utility {
                 if ($_fileinfo->getPath() == substr($_dir, 0, -1)) {
                    $_template_file = $_file;
                 } else {
-                   $_template_file = substr($_fileinfo->getPath(), strlen($_dir)) . DS . $_file;
+                   $_template_file = smarty_internal_utility . phpsubstr($_fileinfo->getPath(), strlen($_dir)) . $_file;
                 }
                 echo '<br>', $_dir, '---', $_template_file;
                 flush();
@@ -142,7 +142,7 @@ class Smarty_Internal_Utility {
                 if ($_fileinfo->getPath() == substr($_dir, 0, -1)) {
                     $_config_file = $_file;
                 } else {
-                    $_config_file = substr($_fileinfo->getPath(), strlen($_dir)) . DS . $_file;
+                    $_config_file = smarty_internal_utility . phpsubstr($_fileinfo->getPath(), strlen($_dir)) . $_file;
                 }
                 echo '<br>', $_dir, '---', $_config_file;
                 flush();
@@ -424,7 +424,7 @@ class Smarty_Internal_Utility {
 
         // test if all registered plugins_dir are accessible
         // and if core plugins directory is still registered
-        $_core_plugins_dir = realpath(dirname(__FILE__) .'/../plugins');
+        $_core_plugins_dir = realpath(dirname(__FILE__) . '/../plugins');
         $_core_plugins_available = false;
         foreach($smarty->getPluginsDir() as $plugin_dir) {
             $_plugin_dir = $plugin_dir;

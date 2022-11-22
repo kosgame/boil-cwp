@@ -2696,7 +2696,7 @@ static public $yy_action = array(
     if ($this->yystack[$this->yyidx + -2]->minor['var'] == '\'smarty\'') {
         $this->_retvalue =  $this->compiler->compileTag('private_special_variable',array(),$this->yystack[$this->yyidx + -2]->minor['smarty_internal_index']).'::'.$this->yystack[$this->yyidx + 0]->minor;
     } else {
-        $this->_retvalue = $this->compileVariable($this->yystack[$this->yyidx + -2]->minor['var']).$this->yystack[$this->yyidx + -2]->minor['smarty_internal_index'].'::'.$this->yystack[$this->yyidx + 0]->minor;
+        $this->_retvalue = $this->compileVariable($this->yystack[$this->yyidx + -2]->minor['var']) . $this->yystack[$this->yyidx + -2]->minor['smarty_internal_index'] .'::'.$this->yystack[$this->yyidx + 0]->minor;
     }
     }
 #line 2698 "smarty_internal_templateparser.php"
@@ -2716,7 +2716,7 @@ static public $yy_action = array(
         // used for array reset,next,prev,end,current
         $this->last_variable = $this->yystack[$this->yyidx + 0]->minor['var'];
         $this->last_index = $this->yystack[$this->yyidx + 0]->minor['smarty_internal_index'];
-        $this->_retvalue = $this->compileVariable($this->yystack[$this->yyidx + 0]->minor['var']).$this->yystack[$this->yyidx + 0]->minor['smarty_internal_index'];
+        $this->_retvalue = $this->compileVariable($this->yystack[$this->yyidx + 0]->minor['var']) . $this->yystack[$this->yyidx + 0]->minor['smarty_internal_index'];
     }
     }
 #line 2718 "smarty_internal_templateparser.php"
@@ -2813,9 +2813,9 @@ static public $yy_action = array(
 #line 913 "smarty_internal_templateparser.y"
     function yy_r145(){
     if ($this->yystack[$this->yyidx + -1]->minor['var'] == '\'smarty\'') {
-        $this->_retvalue =  $this->compiler->compileTag('private_special_variable',array(),$this->yystack[$this->yyidx + -1]->minor['smarty_internal_index']).$this->yystack[$this->yyidx + 0]->minor;
+        $this->_retvalue = $this->compiler->compileTag('private_special_variable', array(), $this->yystack[$this->yyidx + -1]->minor['smarty_internal_index']) . $this->yystack[$this->yyidx + 0]->minor;
     } else {
-        $this->_retvalue = $this->compileVariable($this->yystack[$this->yyidx + -1]->minor['var']).$this->yystack[$this->yyidx + -1]->minor['smarty_internal_index'].$this->yystack[$this->yyidx + 0]->minor;
+        $this->_retvalue = $this->compileVariable($this->yystack[$this->yyidx + -1]->minor['var']) . $this->yystack[$this->yyidx + -1]->minor['smarty_internal_index'] .$this->yystack[$this->yyidx + 0]->minor;
     }
     }
 #line 2817 "smarty_internal_templateparser.php"

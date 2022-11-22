@@ -7,7 +7,7 @@
 	define('STYL', 'styles/');
 	define('INDEX', '/');
 
-	define('ADRES', 'http://localhost/numeryczne/');
+	define('ADRES', 'http://localhost:8080/');
 
 
 ?>

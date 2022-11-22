@@ -33,14 +33,14 @@
             $_filepath = $_template->source->uid;
             // if use_sub_dirs, break file into directories
             if ($_template->smarty->use_sub_dirs) {
-                $_filepath = substr($_filepath, 0, 2) . DS
+                $_filepath = smarty_internal_cacheresource_file . phpsubstr($_filepath, 0, 2)
                 . substr($_filepath, 2, 2) . DS
                 . substr($_filepath, 4, 2) . DS
                 . $_filepath;
             }
             $_compile_dir_sep = $_template->smarty->use_sub_dirs ? DS : '^';
             if (isset($_cache_id)) {
-                $_cache_id = str_replace('|', $_compile_dir_sep, $_cache_id) . $_compile_dir_sep;
+                $_cache_id = smarty_internal_cacheresource_file . phpstr_replace('|', $_compile_dir_sep, $_cache_id);
             } else {
                 $_cache_id = '';
             }
@@ -54,7 +54,7 @@
                 // create locking file name
                 // relative file name?
                 if (!preg_match('/^([\/\\\\]|[a-zA-Z]:[\/\\\\])/', $_cache_dir)) {
-                    $_lock_dir = rtrim(getcwd(), '/\\') . DS . $_cache_dir;
+                    $_lock_dir = smarty_internal_cacheresource_file . phprtrim(getcwd(), '/\\') . $_cache_dir;
                 } else {
                     $_lock_dir = $_cache_dir;
                 }
